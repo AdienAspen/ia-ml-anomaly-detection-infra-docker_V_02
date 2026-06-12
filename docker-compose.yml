@@ -1,0 +1,7 @@
+name: industrial-sandbox-v-02
+
+services: {}
+
+networks:
+  sandbox_v02:
+    name: industrial_sandbox_v02

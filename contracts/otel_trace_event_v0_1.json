@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "contracts/otel_trace_event_v0_1.json",
+  "title": "OTel Trace Event V0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "trace_id",
+    "span_id",
+    "service_name",
+    "operation_name",
+    "timestamp",
+    "duration_ms",
+    "status_code",
+    "attributes"
+  ],
+  "properties": {
+    "schema_version": { "const": "otel_trace_event_v0_1" },
+    "trace_id": { "type": "string", "minLength": 1 },
+    "span_id": { "type": "string", "minLength": 1 },
+    "parent_span_id": { "type": ["string", "null"] },
+    "service_name": { "type": "string", "minLength": 1 },
+    "operation_name": { "type": "string", "minLength": 1 },
+    "timestamp": { "type": "string", "format": "date-time" },
+    "duration_ms": { "type": "number", "minimum": 0 },
+    "status_code": { "type": "string", "enum": ["OK", "ERROR", "UNSET"] },
+    "error_type": { "type": ["string", "null"] },
+    "attributes": { "type": "object" }
+  },
+  "additionalProperties": false
+}

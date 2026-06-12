@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "contracts/context_slice_v0_1.json",
+  "title": "Context Slice V0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "context_id",
+    "trace_id",
+    "service_name",
+    "cluster_decision_id",
+    "evidence",
+    "timeline"
+  ],
+  "properties": {
+    "schema_version": { "const": "context_slice_v0_1" },
+    "context_id": { "type": "string", "minLength": 1 },
+    "trace_id": { "type": "string", "minLength": 1 },
+    "service_name": { "type": "string", "minLength": 1 },
+    "cluster_decision_id": { "type": "string", "minLength": 1 },
+    "evidence": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "timeline": {
+      "type": "array",
+      "items": { "type": "object" }
+    }
+  },
+  "additionalProperties": false
+}

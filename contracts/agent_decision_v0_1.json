@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "contracts/agent_decision_v0_1.json",
+  "title": "Agent Decision V0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "agent_decision_id",
+    "trace_id",
+    "context_id",
+    "triage",
+    "diagnosis",
+    "recommendation",
+    "confidence_id",
+    "policy_outcome",
+    "requires_human_approval"
+  ],
+  "properties": {
+    "schema_version": { "const": "agent_decision_v0_1" },
+    "agent_decision_id": { "type": "string", "minLength": 1 },
+    "trace_id": { "type": "string", "minLength": 1 },
+    "context_id": { "type": "string", "minLength": 1 },
+    "triage": { "type": "string", "minLength": 1 },
+    "diagnosis": { "type": "string", "minLength": 1 },
+    "recommendation": { "type": "string", "minLength": 1 },
+    "confidence_id": { "type": "string", "minLength": 1 },
+    "policy_outcome": { "type": "string", "enum": ["allowed", "requires_approval", "blocked"] },
+    "requires_human_approval": { "type": "boolean" }
+  },
+  "additionalProperties": false
+}

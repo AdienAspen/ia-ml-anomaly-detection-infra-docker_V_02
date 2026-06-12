@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "contracts/cluster_decision_v0_1.json",
+  "title": "Cluster Decision V0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "decision_id",
+    "trace_id",
+    "model_name",
+    "cluster_id",
+    "anomaly_score",
+    "is_anomaly",
+    "reason_codes"
+  ],
+  "properties": {
+    "schema_version": { "const": "cluster_decision_v0_1" },
+    "decision_id": { "type": "string", "minLength": 1 },
+    "trace_id": { "type": "string", "minLength": 1 },
+    "model_name": { "type": "string", "minLength": 1 },
+    "cluster_id": { "type": ["string", "integer", "null"] },
+    "anomaly_score": { "type": "number" },
+    "is_anomaly": { "type": "boolean" },
+    "reason_codes": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": false
+}
