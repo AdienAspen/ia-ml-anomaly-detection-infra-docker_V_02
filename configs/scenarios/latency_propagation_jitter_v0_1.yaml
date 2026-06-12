@@ -13,6 +13,9 @@ noise:
   jitter_seconds:
     min: -20
     max: 20
+  propagation_lag_seconds:
+    min: 10
+    max: 90
   intensity:
     distribution: lognormal
     mean: 1.0
@@ -34,3 +37,23 @@ propagation:
 labels:
   anomaly: true
   class_name: latency_propagation
+telemetry:
+  root_operation: process_payment
+  steps: 8
+  interval_seconds: 30
+metric_baselines:
+  payments-api:
+    latency_ms: 180.0
+    error_rate: 0.012
+    throughput: 220.0
+  redis-broker:
+    latency_ms: 7.5
+    queue_depth: 24.0
+  checkout-api:
+    latency_ms: 175.0
+    error_rate: 0.011
+    throughput: 170.0
+  orders-api:
+    latency_ms: 165.0
+    error_rate: 0.010
+    throughput: 190.0

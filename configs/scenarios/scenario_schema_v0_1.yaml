@@ -6,8 +6,12 @@ required_fields:
   - noise
   - propagation
   - labels
+  - metric_baselines
+  - telemetry
 noise_dimensions:
   jitter_seconds:
+    type: range
+  propagation_lag_seconds:
     type: range
   intensity:
     type: distribution
@@ -15,6 +19,9 @@ noise_dimensions:
     type: list
   intermittent_failure:
     type: boolean
+telemetry:
+  output_format: otel_jsonl
+  raw_artifact_kind: otel_pre_hoc_raw_traces
 artifact_policy:
   raw_otel_first: true
   derived_tabular_dataset: true
