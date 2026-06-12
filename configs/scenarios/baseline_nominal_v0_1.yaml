@@ -1,0 +1,26 @@
+schema_version: scenario_config_v0_1
+scenario_id: baseline_nominal_v0_1
+description: Nominal multi-service behavior without injected degradation.
+mode_support:
+  pre_hoc: true
+  ad_hoc: true
+services:
+  - payments-api
+  - checkout-api
+  - orders-api
+  - redis-broker
+noise:
+  jitter_seconds:
+    min: 0
+    max: 2
+  intensity:
+    distribution: constant
+    value: 1.0
+  recovery_phases: []
+  intermittent_failure: false
+propagation:
+  sequence: []
+  hidden_dependencies: []
+labels:
+  anomaly: false
+  class_name: nominal

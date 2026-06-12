@@ -2,11 +2,18 @@ from __future__ import annotations
 
 import unittest
 
-from contract_test_utils import (
-    assert_contract_shape,
-    assert_payload_matches_minimum_contract,
-    load_contract,
-)
+try:
+    from .contract_test_utils import (
+        assert_contract_shape,
+        assert_payload_matches_minimum_contract,
+        load_contract,
+    )
+except ImportError:
+    from contract_test_utils import (
+        assert_contract_shape,
+        assert_payload_matches_minimum_contract,
+        load_contract,
+    )
 
 
 class AgentDecisionContractTest(unittest.TestCase):

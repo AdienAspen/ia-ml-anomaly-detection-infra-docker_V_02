@@ -37,3 +37,17 @@ uv run python -m unittest discover -s tests/contracts
 ## Phase 0 Closure
 
 Phase 0 is closed when all contract tests pass.
+
+## Phase 1 Architectural Baseline
+
+Phase 1 expands the original "OTel services" idea into two coordinated modes:
+
+- `pre_hoc/`: offline synthetic telemetry generation for training data.
+- `ad_hoc/`: online runtime simulation and inference.
+
+Both modes are governed by shared scenario definitions:
+
+- `configs/scenarios/`
+- `scenario_library/`
+
+Redis Streams is the V_02 online inference path. Kafka, Flink, Prometheus, and Kubernetes are represented as V_03 readiness placeholders only.

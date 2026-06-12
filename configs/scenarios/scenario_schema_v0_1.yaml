@@ -1,0 +1,20 @@
+schema_version: scenario_schema_v0_1
+required_fields:
+  - scenario_id
+  - mode_support
+  - services
+  - noise
+  - propagation
+  - labels
+noise_dimensions:
+  jitter_seconds:
+    type: range
+  intensity:
+    type: distribution
+  recovery_phases:
+    type: list
+  intermittent_failure:
+    type: boolean
+artifact_policy:
+  raw_otel_first: true
+  derived_tabular_dataset: true

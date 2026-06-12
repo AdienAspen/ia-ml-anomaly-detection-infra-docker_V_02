@@ -1,0 +1,36 @@
+schema_version: scenario_config_v0_1
+scenario_id: latency_propagation_jitter_v0_1
+description: V_01-inspired latency propagation with causal jitter and staged recovery.
+mode_support:
+  pre_hoc: true
+  ad_hoc: true
+services:
+  - payments-api
+  - redis-broker
+  - checkout-api
+  - orders-api
+noise:
+  jitter_seconds:
+    min: -20
+    max: 20
+  intensity:
+    distribution: lognormal
+    mean: 1.0
+    sigma: 0.35
+  recovery_phases:
+    - 2
+    - 5
+    - 10
+  intermittent_failure: true
+propagation:
+  sequence:
+    - payments-api
+    - redis-broker
+    - checkout-api
+    - orders-api
+  hidden_dependencies:
+    - source: checkout-api
+      target: redis-broker
+labels:
+  anomaly: true
+  class_name: latency_propagation
